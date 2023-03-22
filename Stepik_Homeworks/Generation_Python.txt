@@ -103,3 +103,21 @@ for i in range (len(s)):
         if s[i] == s[j]:
             count +=1
 print(count)
+
+# На вход программе подается строка текста, содержащая различные натуральные числа. Из данной строки формируется список чисел. Напишите программу,
+# которая меняет местами минимальный и максимальный элемент этого списка.
+
+s = input().split()
+for i in range(len(s)):
+    s[i] = int(s[i])
+print(s)
+min_ind = s.index(min(s))
+min_value = min(s)
+print('min_value = ', min_value)
+max_ind = s.index(max(s))
+max_value = max(s)
+print('max_value = ', max_value)
+s[min_ind] = max_value
+s[max_ind] = min_value
+print(s)
+print(' '.join(str(el) for el in s))
