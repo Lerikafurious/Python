@@ -198,3 +198,42 @@ print(a)
 # На вход программе подается четное число n,n≥2. Напишите программу, которая выводит список четных чисел  [2, 4, 6, ..., n].
 a = [i for i in range(2, int(input())+1, 2)]
 print(a)
+
+
+# На вход программе подается строка текста. Напишите программу, которая определяет является ли введенная строка корректным телефонным номером.
+# Строка текста является корректным телефонным номером если она имеет формат: abc-def-hijk или 7-abc-def-hijk где a, b, c, d, e, f, h, i, j, k – цифры от 0 до 9.
+
+number = input()
+mask_1 = 'aaa-aaa-aaaa'
+mask_2 = '7-aaa-aaa-aaaa'
+flag = 0
+if len(number) == len(mask_1):
+    for i in range(len(number)):
+        if mask_1[i] == 'a' and number[i] not in '0123456789':
+            print('out because mask_1[i] == a and number[i] not in 0123456789')
+            flag = 1
+            break
+        elif mask_1[i] == '-' and number[i] != mask_1[i]:
+            print('out because mask_1[i] == - and number[i] != mask_1[i]')
+            flag = 1
+            break
+elif len(number) == len(mask_2):
+    for i in range(len(number)):
+        if i == 0 and number[i] != '7':
+            print('out because i == 0 and number[i] != 7')
+            flag = 1
+            break
+        if mask_2[i] == 'a' and number[i] not in '0123456789':
+            print('out because mask_2[i] == a and number[i] not in 0123456789')
+            flag = 1
+            break
+        elif mask_2[i] == '-' and number[i] != mask_2[i]:
+            print('out because mask_2[i] == - and number[i] != mask_1[i]')
+            flag = 1
+            break
+else:
+    flag = 1
+if flag == 0:
+    print('YES')
+else:
+    print('NO')
