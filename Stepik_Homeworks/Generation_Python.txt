@@ -271,12 +271,7 @@ def merge(list1, list2):
         elif list1[0] > list2[0]:
             result.append(list2[0])
             list2.remove(list2[0])
-    if len(list1) > 0:
-        result.extend(list1)
-        return result
-    else:
-        result.extend(list2)
-        return result
+    return result + list1 + list2
 
 # считываем данные
 print(merge([1, 2, 3], [5, 6, 7, 8]))
